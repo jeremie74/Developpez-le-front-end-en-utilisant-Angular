@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { OlympicService } from 'src/app/core/services/olympic.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
+  imports: [AsyncPipe],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
