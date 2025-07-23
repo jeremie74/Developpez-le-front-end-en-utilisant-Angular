@@ -1,31 +1,32 @@
+import { Injectable, computed, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OlympicService {
   private olympicUrl = './assets/mock/olympic.json';
-  private olympics$ = new BehaviorSubject<any>(undefined);
+
+  private error = signal(false);
+
+  private olympics = toSignal(
+    this.http.get<any>(this.olympicUrl).pipe(
+      catchError((err) => {
+        console.error('Erreur lors du chargement des données :', err);
+        this.error.set(true);
+        return of(null);
+      })
+    ),
+    {
+      initialValue: undefined
+    }
+  );
 
   constructor(private http: HttpClient) {}
 
-  loadInitialData() {
-    return this.http.get<any>(this.olympicUrl).pipe(
-      tap((value) => this.olympics$.next(value)),
-      catchError((error, caught) => {
-        // TODO: improve error handling
-        console.error(error);
-        // can be useful to end loading state and let the user know something went wrong
-        this.olympics$.next(null);
-        return caught;
-      })
-    );
-  }
-
-  getOlympics() {
-    return this.olympics$.asObservable();
-  }
+  readonly getOlympics = computed(() => this.olympics());
+  readonly hasError = computed(() => this.error());
 }

@@ -10,10 +10,6 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [RouterModule]
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   constructor(private olympicService: OlympicService) {}
-
-  ngOnInit(): void {
-    this.olympicService.loadInitialData().pipe(take(1)).subscribe();
-  }
 }
