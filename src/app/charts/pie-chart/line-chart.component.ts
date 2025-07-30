@@ -3,7 +3,6 @@ import { NgxEchartsDirective, provideEcharts } from 'ngx-echarts';
 import { CommonModule } from '@angular/common';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import { type EChartsOption } from 'echarts';
-import { MedalHistory } from 'src/app/core/models/Olympic';
 
 @Component({
   selector: 'app-line-chart',
