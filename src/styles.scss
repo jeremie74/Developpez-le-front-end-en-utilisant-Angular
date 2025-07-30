@@ -1,1 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+body {
+  @apply bg-white text-gray-800 antialiased leading-relaxed m-0 p-0;
+}
+
+.container {
+  @apply max-w-7xl mx-auto my-8 px-4 text-center;
+}
+
+h1 {
+  @apply text-white text-2xl font-light px-6 py-2 rounded-lg inline-block;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-semibold text-gray-900;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  @apply text-base leading-relaxed;
+}
+
+a {
+  @apply text-teal-700 hover:underline transition-colors duration-200;
+}
+
+ul {
+  @apply list-disc pl-5 mb-4;
+}
+
+ol {
+  @apply list-decimal pl-5 mb-4;
+}
+
+li {
+  @apply mb-2;
+}
+
+button {
+  @apply bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition duration-150;
+}
+
+.stat-group {
+  @apply flex justify-center gap-6 mt-8;
+}
+
+.stat-card {
+  @apply w-56 border-2 border-teal-700 rounded-xl px-6 py-4 text-center;
+}
+
+.stat-label {
+  @apply text-gray-500;
+}
+
+.stat-value {
+  @apply text-black font-bold text-lg;
+}
+
+a {
+  cursor: pointer;
+}

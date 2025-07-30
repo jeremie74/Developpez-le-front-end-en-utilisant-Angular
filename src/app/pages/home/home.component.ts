@@ -1,18 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Component, inject } from '@angular/core';
 import { OlympicService } from 'src/app/core/services/olympic.service';
+import { PieChartComponent } from './../../charts/pie-chart/pie-chart.component';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
+  imports: [PieChartComponent],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
-  public olympics$: Observable<any> = of(null);
+export class HomeComponent {
+olympicService = inject(OlympicService);
 
-  constructor(private olympicService: OlympicService) {}
-
-  ngOnInit(): void {
-    this.olympics$ = this.olympicService.getOlympics();
-  }
 }
