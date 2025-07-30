@@ -1,0 +1,25 @@
+<header class="bg-[#39818d]">
+  <a routerLink="/" class="block w-full text-center py-4 text-white font-semibold"
+    >Medals per country</a
+  >
+</header>
+
+<div class="container">
+  <h1 style="background-color: #39818d">{{ countryNameParam }}</h1>
+  <div class="stat-group">
+    <div class="stat-card">
+      <p class="stat-label">Number of entries</p>
+      <p class="stat-value">{{ entries() }}</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-label">Total number medals</p>
+      <p class="stat-value">{{ medals() }}</p>
+    </div>
+    <div class="stat-card">
+      <p class="stat-label">Total number of athletes</p>
+      <p class="stat-value">{{ athletes() }}</p>
+    </div>
+  </div>
+
+  <app-line-chart [countryId]="countryIdParam"></app-line-chart>
+</div>

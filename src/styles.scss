@@ -15,7 +15,11 @@ h1 {
   @apply text-white text-2xl font-light px-6 py-2 rounded-lg inline-block;
 }
 
-h2, h3, h4, h5, h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   @apply font-semibold text-gray-900;
   margin-bottom: 0.5rem;
 }
@@ -58,4 +62,8 @@ button {
 
 .stat-value {
   @apply text-black font-bold text-lg;
+}
+
+a {
+  cursor: pointer;
 }
