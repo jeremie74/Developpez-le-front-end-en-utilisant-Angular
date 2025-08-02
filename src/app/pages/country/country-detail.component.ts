@@ -19,7 +19,7 @@ export class CountryDetailComponent implements OnInit {
   olympicService = inject(OlympicService);
 
   countryIdParam = parseRouteParam(this.activatedRoute.snapshot.params['id'], 'number');
-  countryName = this.olympicService.getCountryNameById(this.countryIdParam)();
+  countryName = computed(() => this.olympicService.getCountryNameById(this.countryIdParam)());
 
   entries = computed(() => this.olympicService.getEntriesByCountryId(this.countryIdParam)());
   medals = computed(() => this.olympicService.getTotalMedalsByCountryId(this.countryIdParam)());
