@@ -9,7 +9,7 @@ export const appRoutes: Routes = [
     component: HomeComponent,
   },
   {
-    path: ':name/:id',
+    path: 'country/:id',
     component: CountryDetailComponent,
   },
   {

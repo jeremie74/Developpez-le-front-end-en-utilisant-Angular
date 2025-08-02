@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { take } from 'rxjs';
+import { LoaderComponent } from './core/utils/loader.component';
 import { OlympicService } from './core/services/olympic.service';
 import { RouterModule } from '@angular/router';
 
@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [RouterModule]
+  imports: [RouterModule, LoaderComponent],
 })
 export class AppComponent {
   constructor(private olympicService: OlympicService) {}

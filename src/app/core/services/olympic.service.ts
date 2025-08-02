@@ -84,5 +84,11 @@ export class OlympicService {
       }));
     });
 
+  readonly getCountryNameById = (id: number) =>
+    computed(() => {
+      const country = this.findCountryById(id);
+      return country?.country ?? '';
+    });
+
   readonly hasError = computed(() => this.error());
 }
